@@ -1,2 +1,1 @@
-# event
-event
+# Typenter Event Component
