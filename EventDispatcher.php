@@ -73,9 +73,10 @@ class EventDispatcher extends SymfonyEventDispatcher
                 break;
             case EventTypeEnum::APPLY_FILTER:
                 $result = apply_filters($event->getTarget(), $event->getArguments());
-                $event->setArguments($result);
                 break;
         }
+        
+        $event->setResult($result);
 
         return $event;
     }

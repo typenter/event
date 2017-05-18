@@ -42,6 +42,11 @@ class WordpressEvent extends Event
      * @var callable
      */
     protected $callback = null;
+    
+    /**
+     * @var mixed
+     */
+    protected $result = null;
 
     /**
      * @param array  $arguments
@@ -140,4 +145,23 @@ class WordpressEvent extends Event
 
         return $this;
     }
+    
+    /**
+     * @return the $result
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * @param mixed $result
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+        
+        return $this;
+    }
+
 }
