@@ -2,14 +2,12 @@
 
 
 /**
- * This file is part of the kernelstudio package.
+ * This file is part of the typenter package.
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  *
- * @author libertyspy < service@kernelstudio.com >
- *
- * @see http://www.kernelstudio.com
+ * @author libertyspy <admin@kernelstudio.com>
  */
 
 namespace Typenter\Component\Event;
@@ -75,7 +73,7 @@ class EventDispatcher extends SymfonyEventDispatcher
                 $result = apply_filters($event->getTarget(), $event->getArguments());
                 break;
         }
-        
+
         $event->setResult($result);
 
         return $event;

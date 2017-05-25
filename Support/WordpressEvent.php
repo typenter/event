@@ -2,14 +2,12 @@
 
 
 /**
- * This file is part of the kernelstudio package.
+ * This file is part of the typenter package.
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  *
- * @author libertyspy < service@kernelstudio.com >
- *
- * @see http://www.kernelstudio.com
+ * @author libertyspy <admin@kernelstudio.com>
  */
 
 namespace Typenter\Component\Event\Support;
@@ -42,7 +40,7 @@ class WordpressEvent extends Event
      * @var callable
      */
     protected $callback = null;
-    
+
     /**
      * @var mixed
      */
@@ -145,7 +143,7 @@ class WordpressEvent extends Event
 
         return $this;
     }
-    
+
     /**
      * @return the $result
      */
@@ -160,8 +158,7 @@ class WordpressEvent extends Event
     public function setResult($result)
     {
         $this->result = $result;
-        
+
         return $this;
     }
-
 }
