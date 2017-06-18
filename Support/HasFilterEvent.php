@@ -16,6 +16,14 @@ use Typenter\Component\Event\EventTypeEnum;
 
 class HasFilterEvent extends WordpressEvent
 {
+    /**
+     * @var callable|bool
+     */
+    protected $callback = false;
+    
+    /**
+     * @var callable|bool
+     */
     public function getType()
     {
         return EventTypeEnum::HAS_FILTER;

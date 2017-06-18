@@ -43,14 +43,13 @@ class EventDispatcher extends SymfonyEventDispatcher
             return parent::dispatch($event->getTarget(), $event);
         }
         $result = null;
-        
-        /** @var $event \\Typenter\Component\Event\Support\WordpressEvent */
+
         switch ($event->getType()) {
             case EventTypeEnum::ADD_ACTION:
                 $result = add_action($event->getTarget(), $event->getCallback(), $event->getPriority(), $event->getArguments());
                 break;
             case EventTypeEnum::HAS_ACTION:
-                $result = has_action($event->getTarget(), $event->getCallback());
+                $result = has_action($event->getTarget(), $event->getArguments());
                 break;
             case EventTypeEnum::REMOVE_ACTION:
                 $result = remove_action($event->getTarget(), $event->getCallback(), $event->getPriority());

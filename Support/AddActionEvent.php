@@ -16,6 +16,19 @@ use Typenter\Component\Event\EventTypeEnum;
 
 class AddActionEvent extends WordpressEvent
 {
+    /**
+     * @var int
+     */
+    protected $arguments = 1;
+
+    /**
+     * @return int $arguments
+     */
+    public function getArguments()
+    {
+        return (int) $this->arguments;
+    }
+
     public function getType()
     {
         return EventTypeEnum::ADD_ACTION;

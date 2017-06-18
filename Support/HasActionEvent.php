@@ -16,6 +16,11 @@ use Typenter\Component\Event\EventTypeEnum;
 
 class HasActionEvent extends WordpressEvent
 {
+    /**
+     * @var callable|bool
+     */
+    protected $callback = false;
+
     public function getType()
     {
         return EventTypeEnum::HAS_ACTION;

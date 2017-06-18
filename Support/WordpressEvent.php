@@ -34,7 +34,7 @@ class WordpressEvent extends Event
     /**
      * @var int
      */
-    protected $priority;
+    protected $priority = 10;
 
     /**
      * @var callable
@@ -46,14 +46,8 @@ class WordpressEvent extends Event
      */
     protected $result = null;
 
-    /**
-     * @param array  $arguments
-     * @param number $priority
-     */
-    public function __construct($arguments = null, $priority = 10)
+    public function __construct()
     {
-        $this->arguments = $arguments;
-        $this->priority = (int) $priority;
     }
 
     /**
