@@ -39,14 +39,12 @@ class EventDispatcher extends SymfonyEventDispatcher
      */
     public function trigger(WordpressEvent $event)
     {
-        /** @var $event \\Typenter\Component\Event\Support\WordpressEvent */
-        $event = parent::dispatch($event->getTarget(), $event);
-
         if (!$event->support()) {
-            return $event;
+            return parent::dispatch($event->getTarget(), $event);
         }
         $result = null;
-
+        
+        /** @var $event \\Typenter\Component\Event\Support\WordpressEvent */
         switch ($event->getType()) {
             case EventTypeEnum::ADD_ACTION:
                 $result = add_action($event->getTarget(), $event->getCallback(), $event->getPriority(), $event->getArguments());
@@ -71,9 +69,9 @@ class EventDispatcher extends SymfonyEventDispatcher
                 break;
             case EventTypeEnum::APPLY_FILTER:
                 $result = apply_filters($event->getTarget(), $event->getArguments());
+                $event->setArguments($result);
                 break;
         }
-
         $event->setResult($result);
 
         return $event;
